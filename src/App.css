@@ -32,7 +32,7 @@ body {
 /* ── App shell ────────────────────────────────────────────────────────────── */
 .ru-app {
   width: 100%;
-  max-width: 420px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
 }
@@ -179,9 +179,7 @@ body {
 
 /* ── Fields ───────────────────────────────────────────────────────────────── */
 .ru-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  text-align: left;
 }
 
 .ru-field label {
@@ -254,6 +252,21 @@ body {
   color: var(--ru-gold-dark);
   font-weight: 600;
 }
+.ru-field input {
+  width: 100%;
+}
+
+.ru-measure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.ru-measure-card {
+  text-align: center;
+}
 
 /* Number inputs */
 .ru-field input[type='number'] {
@@ -277,53 +290,33 @@ body {
 .ru-field input[type='number']::placeholder { color: var(--ru-muted); }
 
 /* ── Measurement guide photos — vertical stack ────────────────────────────── */
-.ru-guide-section {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 
-.ru-guide-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ru-sub);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
 
-.ru-photo-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+
 
 .ru-photo-img {
   width: 100%;
-  border-radius: var(--ru-radius-sm);
-  object-fit: cover;
-  object-position: center top;
-  border: 1px solid var(--ru-border);
-  display: block;
-  max-height: 260px;
+  height: 220px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
 }
 
-.ru-photo-caption {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 0 2px;
-}
+
+
 
 .ru-photo-label {
-  font-size: 13px;
+  margin-top: 10px;
   font-weight: 600;
-  color: var(--ru-text);
+  font-size: 16px;
 }
 
+
 .ru-photo-hint {
-  font-size: 12px;
-  color: var(--ru-muted);
-  line-height: 1.4;
+  margin: 6px 0 16px;
+  color: #666;
+  font-size: 14px;
 }
 
 /* ── Error ────────────────────────────────────────────────────────────────── */
@@ -511,24 +504,10 @@ body {
   letter-spacing: 0.04em;
 }
 
-.ru-guide-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  width: 100%;
-}
-
-.ru-guide-card {
-  min-width: 0;
-  text-align: center;
-}
 
 
-.ru-photo-img {
-  width: 100%;
-  height: 220px;
+.ru-logo-img {
+  width: 100px;
+  height: auto;
   object-fit: contain;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
 }
