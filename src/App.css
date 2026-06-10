@@ -1,0 +1,496 @@
+/* ─── Reinvent Uniforms — Sri Chaitanya · Light Theme ──────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ru-bg:        #f4f4f6;
+  --ru-white:     #ffffff;
+  --ru-surface:   #ffffff;
+  --ru-border:    #e2e2e8;
+  --ru-border2:   #c8c8d2;
+  --ru-gold:      #c9a84c;
+  --ru-gold-dark: #a6862e;
+  --ru-text:      #111118;
+  --ru-sub:       #555566;
+  --ru-muted:     #9090a0;
+  --ru-error:     #c0392b;
+  --ru-radius:    12px;
+  --ru-radius-sm: 8px;
+}
+
+body {
+  background: var(--ru-bg);
+  color: var(--ru-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ── App shell ────────────────────────────────────────────────────────────── */
+.ru-app {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.ru-header {
+  text-align: center;
+  padding: 1.75rem 0 1.5rem;
+}
+
+.ru-logo-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.ru-logo-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--ru-gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ru-logo-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ru-gold-dark);
+}
+
+.ru-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ru-text);
+  margin-bottom: 6px;
+}
+
+.ru-subtitle {
+  font-size: 13px;
+  color: var(--ru-muted);
+}
+
+/* ── Step bar ─────────────────────────────────────────────────────────────── */
+.ru-stepbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  padding: 0 0.5rem;
+}
+
+.ru-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.ru-step-line {
+  position: absolute;
+  top: 15px;
+  right: 50%;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ru-border);
+  z-index: 0;
+}
+
+.ru-step-line.done { background: var(--ru-gold); }
+
+.ru-step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ru-border2);
+  background: var(--ru-white);
+  color: var(--ru-muted);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s;
+}
+
+.ru-step.active .ru-step-circle {
+  border-color: var(--ru-gold);
+  background: var(--ru-gold);
+  color: #fff;
+}
+
+.ru-step.done .ru-step-circle {
+  border-color: var(--ru-gold);
+  color: var(--ru-gold);
+  background: #fff;
+}
+
+.ru-step-label {
+  font-size: 11px;
+  color: var(--ru-muted);
+  white-space: nowrap;
+}
+
+.ru-step.active .ru-step-label,
+.ru-step.done .ru-step-label {
+  color: var(--ru-gold-dark);
+  font-weight: 500;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+.ru-card {
+  background: var(--ru-white);
+  border: 1px solid var(--ru-border);
+  border-radius: var(--ru-radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ru-card-heading {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ru-text);
+}
+
+.ru-card-sub {
+  font-size: 12px;
+  color: var(--ru-muted);
+  margin-top: -0.75rem;
+}
+
+/* ── Fields ───────────────────────────────────────────────────────────────── */
+.ru-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ru-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ru-sub);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Select */
+.ru-select-wrap {
+  position: relative;
+}
+
+.ru-select-wrap select {
+  width: 100%;
+  appearance: none;
+  padding: 11px 36px 11px 14px;
+  background: var(--ru-white);
+  border: 1px solid var(--ru-border2);
+  border-radius: var(--ru-radius-sm);
+  color: var(--ru-text);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.ru-select-wrap select:focus { border-color: var(--ru-gold); }
+
+.ru-select-wrap::after {
+  content: '›';
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  color: var(--ru-muted);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* Gender toggle */
+.ru-gender-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ru-gender-btn {
+  flex: 1;
+  padding: 10px 8px;
+  background: var(--ru-white);
+  border: 1px solid var(--ru-border2);
+  border-radius: var(--ru-radius-sm);
+  color: var(--ru-sub);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ru-gender-btn:hover {
+  border-color: var(--ru-gold);
+  color: var(--ru-text);
+}
+
+.ru-gender-btn.selected {
+  border-color: var(--ru-gold);
+  background: #fdf8ee;
+  color: var(--ru-gold-dark);
+  font-weight: 600;
+}
+
+/* Number inputs */
+.ru-field input[type='number'] {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--ru-white);
+  border: 1px solid var(--ru-border2);
+  border-radius: var(--ru-radius-sm);
+  color: var(--ru-text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  -moz-appearance: textfield;
+}
+
+.ru-field input[type='number']::-webkit-inner-spin-button,
+.ru-field input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+.ru-field input[type='number']:focus { border-color: var(--ru-gold); }
+
+.ru-field input[type='number']::placeholder { color: var(--ru-muted); }
+
+/* ── Photo placeholders ───────────────────────────────────────────────────── */
+.ru-photo-row {
+  display: flex;
+  gap: 12px;
+}
+
+.ru-photo-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ru-photo-inner {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--ru-bg);
+  border: 1.5px dashed var(--ru-border2);
+  border-radius: var(--ru-radius);
+}
+
+.ru-photo-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ru-sub);
+}
+
+.ru-photo-hint {
+  font-size: 11px;
+  color: var(--ru-muted);
+  text-align: center;
+}
+
+/* ── Error ────────────────────────────────────────────────────────────────── */
+.ru-error {
+  font-size: 12px;
+  color: var(--ru-error);
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.ru-btn-primary {
+  width: 100%;
+  padding: 13px;
+  background: var(--ru-gold);
+  color: #fff;
+  border: none;
+  border-radius: var(--ru-radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.ru-btn-primary:hover  { background: var(--ru-gold-dark); }
+.ru-btn-primary:active { transform: scale(0.98); }
+
+.ru-btn-back {
+  background: none;
+  border: none;
+  color: var(--ru-muted);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: -0.5rem;
+  transition: color 0.15s;
+  text-align: left;
+}
+
+.ru-btn-back:hover { color: var(--ru-text); }
+
+.ru-btn-secondary {
+  width: 100%;
+  padding: 11px;
+  background: transparent;
+  border: 1px solid var(--ru-border2);
+  border-radius: var(--ru-radius-sm);
+  color: var(--ru-sub);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.ru-btn-secondary:hover {
+  border-color: var(--ru-gold);
+  color: var(--ru-text);
+}
+
+/* ── Result screen ────────────────────────────────────────────────────────── */
+.ru-result-banner {
+  text-align: center;
+  background: #fdf8ee;
+  border: 1px solid #e8d49a;
+  border-radius: var(--ru-radius);
+  padding: 1.75rem 1.25rem;
+}
+
+.ru-result-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ru-gold-dark);
+  margin-bottom: 8px;
+}
+
+.ru-result-size {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--ru-text);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 4px;
+}
+
+.ru-result-sublabel {
+  font-size: 14px;
+  color: var(--ru-gold-dark);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.ru-result-meas {
+  font-size: 12px;
+  color: var(--ru-muted);
+}
+
+/* Specs */
+.ru-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.ru-spec-box {
+  background: var(--ru-bg);
+  border: 1px solid var(--ru-border);
+  border-radius: var(--ru-radius-sm);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ru-spec-label {
+  font-size: 11px;
+  color: var(--ru-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ru-spec-val {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ru-text);
+}
+
+/* Size table */
+.ru-table-heading {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ru-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ru-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--ru-radius-sm);
+  border: 1px solid var(--ru-border);
+}
+
+.ru-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ru-table th {
+  background: var(--ru-bg);
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ru-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ru-border);
+}
+
+.ru-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--ru-border);
+  color: var(--ru-text);
+}
+
+.ru-table tbody tr:last-child td { border-bottom: none; }
+
+.ru-table tr.ru-row-match td {
+  background: #fdf8ee;
+  color: var(--ru-gold-dark);
+  font-weight: 600;
+}
+
+.ru-table tr.ru-row-match td:first-child {
+  border-left: 3px solid var(--ru-gold);
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+.ru-footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--ru-muted);
+  padding: 1.25rem 0 0;
+  letter-spacing: 0.04em;
+}
