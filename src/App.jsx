@@ -276,9 +276,7 @@ function Screen2({ selection, onNext, onBack }) {
             alt="Height measurement"
             className="ru-photo-img"
           />
-          <p className="ru-photo-label">Height</p>
-          <p className="ru-photo-hint">Standing straight, full length</p>
-
+         
           <div className="ru-field">
             <label htmlFor="height">Height (cm)</label>
             <input
@@ -300,8 +298,7 @@ function Screen2({ selection, onNext, onBack }) {
             alt="Chest measurement"
             className="ru-photo-img"
           />
-          <p className="ru-photo-label">Chest</p>
-          <p className="ru-photo-hint">Tape around fullest part</p>
+
 
           <div className="ru-field">
             <label htmlFor="chest">Chest (cm)</label>
@@ -324,8 +321,7 @@ function Screen2({ selection, onNext, onBack }) {
             alt="Waist measurement"
             className="ru-photo-img"
           />
-          <p className="ru-photo-label">Waist</p>
-          <p className="ru-photo-hint">Natural waistline</p>
+
 
           <div className="ru-field">
             <label htmlFor="waist">Waist (cm)</label>
